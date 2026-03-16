@@ -1,6 +1,5 @@
  class PalindromeApp {
     public static void main(String[] args) {
-        import java.util.Stack;
 
         class PalindromeChecker {
 
@@ -9,22 +8,35 @@
                 // Original string
                 String text = "madam";
 
+                // Create Stack (LIFO)
+                Stack<Character> stack = new Stack<>();
 
-                // Convert string to character array
-                char[] chars = text.toCharArray();
+                // Create Queue (FIFO)
+                Queue<Character> queue = new LinkedList<>();
 
-                // Pop characters from stack
-                while (!stack.isEmpty()) {
-                    reversed = reversed + stack.pop();
+                // Insert characters into both data structures
+                for (int i = 0; i < text.length(); i++) {
+                    char ch = text.charAt(i);
+                    stack.push(ch);     // Push into stack
+                    queue.add(ch);      // Enqueue into queue
                 }
 
-                // Compare original and reversed string
-                if (text.equals(reversed)) {
+                boolean isPalindrome = true;
+
+                // Compare dequeue (queue) with pop (stack)
+                while (!queue.isEmpty()) {
+                    if (queue.remove() != stack.pop()) {
+                        isPalindrome = false;
+                        break;
+                    }
+                }
+
+                // Print result
+                if (isPalindrome) {
                     System.out.println(text + " is a Palindrome");
                 } else {
                     System.out.println(text + " is not a Palindrome");
                 }
-
             }
         }
 
