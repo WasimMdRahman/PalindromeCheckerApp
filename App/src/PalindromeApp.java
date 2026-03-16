@@ -1,5 +1,7 @@
  class PalindromeApp {
     public static void main(String[] args) {
+        import java.util.Stack;
+
         class PalindromeChecker {
 
             public static void main(String[] args) {
@@ -7,27 +9,17 @@
                 // Original string
                 String text = "madam";
 
+
                 // Convert string to character array
                 char[] chars = text.toCharArray();
 
-                // Two pointers
-                int start = 0;
-                int end = chars.length - 1;
-
-                boolean isPalindrome = true;
-
-                // Compare characters from both ends
-                while (start < end) {
-                    if (chars[start] != chars[end]) {
-                        isPalindrome = false;
-                        break;
-                    }
-                    start++;
-                    end--;
+                // Pop characters from stack
+                while (!stack.isEmpty()) {
+                    reversed = reversed + stack.pop();
                 }
 
-                // Display result
-                if (isPalindrome) {
+                // Compare original and reversed string
+                if (text.equals(reversed)) {
                     System.out.println(text + " is a Palindrome");
                 } else {
                     System.out.println(text + " is not a Palindrome");
