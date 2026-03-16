@@ -9,16 +9,9 @@
                 // Original string
                 String text = "madam";
 
-                // Create stack
-                Stack<Character> stack = new Stack<>();
 
-                // Push characters into stack
-                for (int i = 0; i < text.length(); i++) {
-                    stack.push(text.charAt(i));
-                }
-
-                // Variable to store reversed string
-                String reversed = "";
+                // Convert string to character array
+                char[] chars = text.toCharArray();
 
                 // Pop characters from stack
                 while (!stack.isEmpty()) {
