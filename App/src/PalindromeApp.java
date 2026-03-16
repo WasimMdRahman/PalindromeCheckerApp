@@ -8,35 +8,34 @@
                 // Original string
                 String text = "madam";
 
-                // Create Stack (LIFO)
-                Stack<Character> stack = new Stack<>();
+                // Create Deque
+                Deque<Character> deque = new LinkedList<>();
 
-                // Create Queue (FIFO)
-                Queue<Character> queue = new LinkedList<>();
-
-                // Insert characters into both data structures
+                // Insert characters into deque
                 for (int i = 0; i < text.length(); i++) {
-                    char ch = text.charAt(i);
-                    stack.push(ch);     // Push into stack
-                    queue.add(ch);      // Enqueue into queue
+                    deque.addLast(text.charAt(i));
                 }
 
                 boolean isPalindrome = true;
 
-                // Compare dequeue (queue) with pop (stack)
-                while (!queue.isEmpty()) {
-                    if (queue.remove() != stack.pop()) {
+                // Compare front and rear characters
+                while (deque.size() > 1) {
+                    char front = deque.removeFirst();
+                    char rear = deque.removeLast();
+
+                    if (front != rear) {
                         isPalindrome = false;
                         break;
                     }
                 }
 
-                // Print result
+                // Display result
                 if (isPalindrome) {
                     System.out.println(text + " is a Palindrome");
                 } else {
                     System.out.println(text + " is not a Palindrome");
                 }
+
             }
         }
 
