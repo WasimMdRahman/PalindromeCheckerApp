@@ -1,4 +1,4 @@
- class PalindromeApp {
+class Palin {
     public static void main(String[] args) {
 
         class PalindromeLinkedList {
@@ -98,3 +98,4 @@
 
     }
 }
+
